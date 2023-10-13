@@ -1,6 +1,6 @@
-Scrum Team : 
+**Scrum Team :**
 
-Product Owner : 
+**Product Owner :**
 
 Laxmi Sharada Somaraju 
 
@@ -8,13 +8,13 @@ Laxmi Sharada Somaraju
 
  
 
-Scrum Master :  
+**Scrum Master :** 
 
 Ruchitha Reddy Kudumula 
 
  
 
-Developers :  
+**Developers :**  
 
 Satya Suhas Nune 
 
