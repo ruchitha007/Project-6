@@ -1,4 +1,4 @@
-##**Scrum Team :**
+#**Scrum Team :**
 
 **Product Owner :**
 
