@@ -1,15 +1,28 @@
-Srum Team
-Product Owner:
-Laxmi Sharada Somaraju
+Scrum Team : 
 
-Scrum Master:
-Ruchitha Reddy Kudumula
+Product Owner : 
 
-Developers
-Jahnavi Kanukuntla
-Satya Suhas Nune
-Bhavagna Tummala
-Praneeth Sai Kanaparthi
+Laxmi Sharada Somaraju 
+
+ 
+
+ 
+
+Scrum Master :  
+
+Ruchitha Reddy Kudumula 
+
+ 
+
+Developers :  
+
+Satya Suhas Nune 
+
+Jahnavi Kanukuntla 
+
+Praneeth Sai Kanaparthi 
+
+Bhavagna Tummala 
 
 
 # Project 5: Single Page Applications [^1]
