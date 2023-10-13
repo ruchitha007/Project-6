@@ -145,7 +145,9 @@ class UserPhotos extends React.Component {
     super(props);
     this.state = {
       photos: null,
-      version: null, // To store the version number
+      // eslint-disable-next-line react/no-unused-state
+      version: null,
+      // To store the version number
     };
   }
 
@@ -182,6 +184,7 @@ class UserPhotos extends React.Component {
     // Use the FetchModel function to get the version info
     FetchModel('/test/info')
       .then((data) => {
+        // eslint-disable-next-line react/no-unused-state
         this.setState({ version: data.data });
       })
       .catch((error) => {
