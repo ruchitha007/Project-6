@@ -20,14 +20,14 @@ class TopBar extends React.Component {
     const app_info = this.state.app_info;
     if (app_info === null) {
       axios.get('/test/info')
-        .then((response) => {
-          this.setState({
-            app_info: response.data,
+          .then((response) => {
+            this.setState({
+              app_info: response.data,
+            });
+          })
+          .catch((error) => {
+            console.error('Error fetching app info:', error);
           });
-        })
-        .catch((error) => {
-          console.error('Error fetching app info:', error);
-        });
     }
   }
 
@@ -40,21 +40,21 @@ class TopBar extends React.Component {
     };
 
     return (
-      <AppBar className="topbar-appBar" position="absolute">
-        <Toolbar style={toolbarStyle}>
-          <Typography variant="h5" color="white">
-            BITBYTES
-          </Typography>
-          <Typography variant="h6" color="white">
-            {this.props.topName}
-          </Typography>
-          {this.state.app_info && (
-            <Typography variant="h5" component="div" color="inherit">
-              Version: {this.state.app_info.__v}
+        <AppBar className="topbar-appBar" position="absolute">
+          <Toolbar style={toolbarStyle}>
+            <Typography variant="h5" color="white">
+              BITBYTES
             </Typography>
-          )}
-        </Toolbar>
-      </AppBar>
+            <Typography variant="h6" color="white">
+              {this.props.topName}
+            </Typography>
+            {this.state.app_info && (
+                <Typography variant="h5" component="div" color="inherit">
+                  Version: {this.state.app_info.version}
+                </Typography>
+            )}
+          </Toolbar>
+        </AppBar>
     );
   }
 }
