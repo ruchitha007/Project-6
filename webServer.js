@@ -34,20 +34,20 @@ app.get("/test/:p1", function (request, response) {
   // objects.
   console.log("/test called with param1 = ", request.params.p1);
 
-  const param = request.params.p1 || "temp";
+  const param = request.params.p1 || "info";
 
-  if (param === "temp") {
+  if (param === "info") {
     // Fetch the SchemaInfo. There should only one of them. The query of {} will
     // match it.
-    SchemaInfo.find({}, function (err, temp) {
+    SchemaInfo.find({}, function (err, info) {
       if (err) {
         // Query returned an error. We pass it back to the browser with an
         // Internal Service Error (500) error code.
-        console.error("Error in /user/temp:", err);
+        console.error("Error in /user/info:", err);
         response.status(500).send(JSON.stringify(err));
         return;
       }
-      if (temp.length === 0) {
+      if (info.length === 0) {
         // Query didn't return an error but didn't find the SchemaInfo object -
         // This is also an internal error return.
         response.status(500).send("Missing SchemaInfo");
@@ -55,8 +55,8 @@ app.get("/test/:p1", function (request, response) {
       }
 
       // We got the object - return it in JSON format.
-      console.log("SchemaInfo", temp[0]);
-      response.end(JSON.stringify(temp[0]));
+      console.log("SchemaInfo", info[0]);
+      response.end(JSON.stringify(info[0]));
     });
   } else if (param === "counts") {
     // In order to return the counts of all the collections we need to do an
@@ -145,10 +145,10 @@ app.get("/photosOfUser/:id", function (request, response) {
 
     } else {
       var functionStack = [];
-      var temp = JSON.parse(JSON.stringify(photos));
-      for (var i = 0; i < temp.length; i++) {
-        delete temp[i].__v;
-        var comments = temp[i].comments;
+      var info = JSON.parse(JSON.stringify(photos));
+      for (var i = 0; i < info.length; i++) {
+        delete info[i].__v;
+        var comments = info[i].comments;
 
         comments.forEach(function (comment) {
           var uid = comment.user_id;
@@ -179,7 +179,7 @@ app.get("/photosOfUser/:id", function (request, response) {
 
       // eslint-disable-next-line no-unused-vars
       async.parallel(functionStack, function (res) {
-        response.status(200).send(temp);
+        response.status(200).send(info);
       });
     }
   });
