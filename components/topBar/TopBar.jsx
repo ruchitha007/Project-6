@@ -1,7 +1,8 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import './TopBar.css';
-import FetchModel from '../../lib/fetchModelData';
+import axios from 'axios';
+//import FetchModel from '../../lib/fetchModelData';
 
 class TopBar extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class TopBar extends React.Component {
   handleAppInfoChange() {
     const app_info = this.state.app_info;
     if (app_info === null) {
-      FetchModel('/test/info')
+      axios.get('/test/info')
         .then((response) => {
           this.setState({
             app_info: response.data,
