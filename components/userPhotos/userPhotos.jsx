@@ -136,8 +136,9 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 // import FetchModel from '../lib/fetchModelData'; // Import the FetchModel function
-import FetchModel from '../../lib/fetchModelData';
+//import FetchModel from '../../lib/fetchModelData';
 
 
 class UserPhotos extends React.Component {
@@ -145,9 +146,7 @@ class UserPhotos extends React.Component {
     super(props);
     this.state = {
       photos: null,
-      // eslint-disable-next-line react/no-unused-state
-      version: null,
-      // To store the version number
+       // To store the version number
     };
   }
 
@@ -171,7 +170,7 @@ class UserPhotos extends React.Component {
     const { userId } = match.params;
 
     // Use the FetchModel function to get user photos
-    FetchModel(`/photosOfUser/${userId}`)
+    axios.get(`/photosOfUser/${userId}`)
       .then((data) => {
         this.setState({ photos: data.data });
       })
@@ -182,7 +181,7 @@ class UserPhotos extends React.Component {
 
   fetchVersionInfo() {
     // Use the FetchModel function to get the version info
-    FetchModel('/test/info')
+    axios.get('/test/info')
       .then((data) => {
         // eslint-disable-next-line react/no-unused-state
         this.setState({ version: data.data });
