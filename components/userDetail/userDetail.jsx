@@ -226,7 +226,8 @@ import React from 'react';
 import { Typography, Button, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './userDetail.css';
-import  FetchModel  from '../../lib/fetchModelData'; // Import the FetchModel function
+import axios from 'axios';
+//import  FetchModel  from '../../lib/fetchModelData'; // Import the FetchModel function
 
 class UserDetail extends React.Component {
   constructor(props) {
@@ -256,7 +257,7 @@ class UserDetail extends React.Component {
     // Define the URL to fetch the user data
     const url = `/user/${userId}`;
 
-    FetchModel(url) // Use the FetchModel function
+    axios.get(url) // Use the FetchModel function
       .then((response) => {
         this.setState({ user: response.data });
       })
